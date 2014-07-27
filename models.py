@@ -1,8 +1,8 @@
 from datetime import datetime
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_app import db
 
+__author__ = 'Surfer'
 
-db = SQLAlchemy(app)
 
 class Websites(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -17,3 +17,8 @@ class Websites(db.Model):
 
     def __repr__(self):
         return '<Website %r>' % self.label
+
+    def __str__(self):
+        return '%s|%s|%s' % (self.label, self.url, str(self.created))
+
+
